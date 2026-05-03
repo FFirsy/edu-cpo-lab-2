@@ -1,5 +1,4 @@
 import itertools
-from typing import Optional
 
 import pytest
 from hypothesis import given, strategies as st
@@ -242,10 +241,10 @@ def test_iterator():
 def test_immutability():
     """Verify that operations do not modify the original set."""
     s = from_list([1, 2, 3])
-    s1 = cons(s, 4)
-    s2 = remove(s, 2)
-    s3 = filter_set(s, lambda x: x % 2 == 0)
-    s4 = map_set(s, lambda x: x * 10)
+    cons(s, 4)
+    remove(s, 2)
+    filter_set(s, lambda x: x % 2 == 0)
+    map_set(s, lambda x: x * 10)
 
     # original unchanged
     assert length(s) == 3
@@ -280,7 +279,13 @@ def test_str():
 def test_pbt_from_list_uniqueness(lst):
     """from_list creates a set with no duplicates."""
     s = from_list(lst)
-    assert sorted(to_list(s), key=lambda x: (x is None, x)) == sorted(set(lst), key=lambda x: (x is None, x))
+    elements = sorted(
+        to_list(s), key=lambda x: (x is None, x)
+    )
+    expected = sorted(
+        set(lst), key=lambda x: (x is None, x)
+    )
+    assert elements == expected
 
 
 @given(st.lists(st.integers()))
