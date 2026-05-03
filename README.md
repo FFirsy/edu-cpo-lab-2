@@ -45,8 +45,8 @@ The internal representation uses:
 When an operation modifies the set:
 
 1. A new set instance is created
-2. Only the affected bucket is rebuilt
-3. All other buckets are **shared** with the previous
+1. Only the affected bucket is rebuilt
+1. All other buckets are **shared** with the previous
    version (structural sharing)
 
 ### Recursion
@@ -81,6 +81,7 @@ All elements are rehashed into new buckets.
 - Wang Qifan - Tests and documentation
 
 ## Changelog
-- **2026-05-03** - fix codestyle
 
-- **2026-05-03** - Initial implementation of immutable hash map separate chaining set
+- **2026-05-03** - fix codestyle
+- **2026-05-03** - Initial implementation
+  of immutable hash map set
