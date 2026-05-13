@@ -1,5 +1,5 @@
 
-# Lab 2 - Immutable HashMap Separate Chaining Set
+# Group4 - Lab 2 - Immutable HashMap Separate Chaining Set
 
 This project implements an **immutable set** using a hash map with
 separate chaining.
